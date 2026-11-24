@@ -1,50 +1,379 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1"
-  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
-  xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="model_fantasy" name="FantasyGame">
-    <packagedElement xmi:type="uml:Interface" xmi:id="Equipable" name="Equipable">
-      <ownedOperation xmi:id="equip_operation" name="equip"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Character" name="Character" isAbstract="true">
-      <ownedAttribute xmi:id="character_name" name="name"/>
-      <ownedAttribute xmi:id="character_health" name="health"/>
-      <ownedAttribute xmi:id="character_level" name="level"/>
-      <ownedOperation xmi:id="character_attack" name="attack"/>
-      <ownedOperation xmi:id="character_takeDamage" name="takeDamage"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Warrior" name="Warrior">
-      <generalization xmi:id="warrior_extends" general="Character"/>
-      <ownedAttribute xmi:id="warrior_strength" name="strength"/>
-      <ownedOperation xmi:id="warrior_charge" name="charge"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Mage" name="Mage">
-      <generalization xmi:id="mage_extends" general="Character"/>
-      <ownedAttribute xmi:id="mage_mana" name="mana"/>
-      <ownedOperation xmi:id="mage_castSpell" name="castSpell"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Archer" name="Archer">
-      <generalization xmi:id="archer_extends" general="Character"/>
-      <ownedAttribute xmi:id="archer_range" name="range"/>
-      <ownedOperation xmi:id="archer_shootArrow" name="shootArrow"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Sword" name="Sword">
-      <interfaceRealization xmi:id="sword_realizes_equipable" name="equipable" supplier="Equipable" client="Sword"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Wand" name="Wand">
-      <interfaceRealization xmi:id="wand_realizes_equipable" name="equipable" supplier="Equipable" client="Wand"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Bow" name="Bow">
-      <interfaceRealization xmi:id="bow_realizes_equipable" name="equipable" supplier="Equipable" client="Bow"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="GameManager" name="GameManager">
-      <ownedAttribute xmi:id="manager_characters" name="characters"/>
-      <ownedOperation xmi:id="manager_create" name="createCharacter"/>
-      <ownedOperation xmi:id="manager_battle" name="startBattle"/>
-      <ownedOperation xmi:id="manager_instance" name="getInstance" isStatic="true"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="Main" name="Main">
-      <ownedOperation xmi:id="main_method" name="main" isStatic="true"/>
-    </packagedElement>
-  </uml:Model>
-</xmi:XMI>
+<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.4" xmi.version="1.2">
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller https://umbrello.kde.org</XMI.exporter>
+   <XMI.exporterVersion>2.39.3</XMI.exporterVersion>
+   <XMI.exporterEncoding>UnicodeUTF8</XMI.exporterEncoding>
+  </XMI.documentation>
+  <XMI.metamodel xmi.version="1.4" href="UML.xml" xmi.name="UML"/>
+ </XMI.header>
+ <XMI.content>
+  <UML:Model isSpecification="false" isAbstract="false" isLeaf="false" xmi.id="m1" isRoot="false" name="FantasyGame">
+   <UML:Namespace.ownedElement>
+    <UML:Stereotype isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="st_folder" isRoot="false" name="folder"/>
+    <UML:Stereotype isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="st_datatype" isRoot="false" name="datatype"/>
+    <UML:Stereotype isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="st_use" isRoot="false" name="use"/>
+    <UML:Stereotype isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="st_create" isRoot="false" name="create"/>
+    <UML:Stereotype isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="st_singleton" isRoot="false" name="singleton"/>
+    <UML:Model stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="Logical_View" isRoot="false" name="Logical View">
+     <UML:Namespace.ownedElement>
+      <UML:Package stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Datatypes" isRoot="false" name="Datatypes">
+       <UML:Namespace.ownedElement>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_int" isRoot="false" name="int"/>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_boolean" isRoot="false" name="boolean"/>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_void" isRoot="false" name="void"/>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_String" isRoot="false" name="String"/>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_StringArr" isRoot="false" name="String[]"/>
+        <UML:DataType stereotype="st_datatype" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Datatypes" xmi.id="dt_ListChar" isRoot="false" name="List&lt;Character&gt;"/>
+       </UML:Namespace.ownedElement>
+      </UML:Package>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Main" isRoot="false" name="Main">
+       <UML:Classifier.feature>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" ownerScope="classifier" xmi.id="Main_main" isRoot="false" name="main">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Main_main_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="Main_main_p1" value="" type="dt_StringArr" name="args"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class stereotype="st_singleton" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="GameManager" isRoot="false" name="GameManager">
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" visibility="private" ownerScope="classifier" xmi.id="GM_instance" type="GameManager" name="INSTANCE"/>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="GM_characters" type="dt_ListChar" name="characters"/>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="private" xmi.id="GM_ctor" isRoot="false" name="GameManager">
+         <UML:BehavioralFeature.parameter/>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" ownerScope="classifier" xmi.id="GM_getInstance" isRoot="false" name="getInstance">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GM_getInstance_r" type="GameManager"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="GM_create" isRoot="false" name="createCharacter">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GM_create_r" type="Character"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="GM_create_p1" value="" type="dt_String" name="type"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="GM_create_p2" value="" type="dt_String" name="name"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="GM_getChars" isRoot="false" name="getCharacters">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GM_getChars_r" type="dt_ListChar"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="GM_battle" isRoot="false" name="startBattle">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GM_battle_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="GM_battle_p1" value="" type="Character" name="hero1"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="GM_battle_p2" value="" type="Character" name="hero2"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="true" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Character" isRoot="false" name="Character">
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="C_name" type="dt_String" name="name"/>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="C_health" type="dt_int" name="health"/>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="C_level" type="dt_int" initialValue="1" name="level"/>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="protected" xmi.id="C_ctor" isRoot="false" name="Character">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="C_ctor_p1" value="" type="dt_String" name="name"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="C_ctor_p2" value="" type="dt_int" name="health"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_getName" isRoot="false" name="getName">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_getName_r" type="dt_String"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_getHealth" isRoot="false" name="getHealth">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_getHealth_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_getLevel" isRoot="false" name="getLevel">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_getLevel_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_isAlive" isRoot="false" name="isAlive">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_isAlive_r" type="dt_boolean"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="true" isLeaf="false" visibility="protected" xmi.id="C_bonus" isRoot="false" name="getBonusDamage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_bonus_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_attack" isRoot="false" name="attack">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_attack_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="C_attack_p1" value="" type="Character" name="target"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="C_takeDamage" isRoot="false" name="takeDamage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_takeDamage_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="C_takeDamage_p1" value="" type="dt_int" name="amount"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="protected" xmi.id="C_incLevel" isRoot="false" name="increaseLevel">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="C_incLevel_r" type="dt_void"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Warrior" isRoot="false" name="Warrior">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="gen_warrior"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="W_strength" type="dt_int" initialValue="15" name="strength"/>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="W_ctor" isRoot="false" name="Warrior">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="W_ctor_p1" value="" type="dt_String" name="name"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="W_getStrength" isRoot="false" name="getStrength">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="W_getStrength_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="protected" xmi.id="W_bonus" isRoot="false" name="getBonusDamage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="W_bonus_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="W_inc" isRoot="false" name="increaseStrength">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="W_inc_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="W_inc_p1" value="" type="dt_int" name="amount"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="W_charge" isRoot="false" name="charge">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="W_charge_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="W_charge_p1" value="" type="Character" name="target"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Mage" isRoot="false" name="Mage">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="gen_mage"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="M_mana" type="dt_int" initialValue="30" name="mana"/>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="M_ctor" isRoot="false" name="Mage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="M_ctor_p1" value="" type="dt_String" name="name"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="M_getMana" isRoot="false" name="getMana">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="M_getMana_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="protected" xmi.id="M_bonus" isRoot="false" name="getBonusDamage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="M_bonus_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="M_inc" isRoot="false" name="increaseMana">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="M_inc_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="M_inc_p1" value="" type="dt_int" name="amount"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="M_cast" isRoot="false" name="castSpell">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="M_cast_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="M_cast_p1" value="" type="Character" name="target"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Archer" isRoot="false" name="Archer">
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="gen_archer"/>
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" visibility="private" xmi.id="A_range" type="dt_int" initialValue="20" name="range"/>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="A_ctor" isRoot="false" name="Archer">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="A_ctor_p1" value="" type="dt_String" name="name"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="A_getRange" isRoot="false" name="getRange">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="A_getRange_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="protected" xmi.id="A_bonus" isRoot="false" name="getBonusDamage">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="A_bonus_r" type="dt_int"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="A_inc" isRoot="false" name="increaseRange">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="A_inc_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="A_inc_p1" value="" type="dt_int" name="amount"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="A_shoot" isRoot="false" name="shootArrow">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="A_shoot_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="A_shoot_p1" value="" type="Character" name="target"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Interface isSpecification="false" isAbstract="true" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Equipable" isRoot="false" name="Equipable">
+       <UML:Classifier.feature>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="true" isLeaf="false" visibility="public" xmi.id="E_equip" isRoot="false" name="equip">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="E_equip_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="E_equip_p1" value="" type="Character" name="character"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Interface>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Sword" isRoot="false" name="Sword">
+       <UML:Classifier.feature>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="S_equip" isRoot="false" name="equip">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="S_equip_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="S_equip_p1" value="" type="Character" name="character"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Wand" isRoot="false" name="Wand">
+       <UML:Classifier.feature>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="Wa_equip" isRoot="false" name="equip">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Wa_equip_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="Wa_equip_p1" value="" type="Character" name="character"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Class isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="Logical_View" xmi.id="Bow" isRoot="false" name="Bow">
+       <UML:Classifier.feature>
+        <UML:Operation isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" visibility="public" xmi.id="B_equip" isRoot="false" name="equip">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="B_equip_r" type="dt_void"/>
+          <UML:Parameter isSpecification="false" visibility="private" xmi.id="B_equip_p1" value="" type="Character" name="character"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+
+      <UML:Generalization isSpecification="false" child="Warrior" visibility="public" namespace="Logical_View" xmi.id="gen_warrior" parent="Character" discriminator="" name=""/>
+      <UML:Generalization isSpecification="false" child="Mage" visibility="public" namespace="Logical_View" xmi.id="gen_mage" parent="Character" discriminator="" name=""/>
+      <UML:Generalization isSpecification="false" child="Archer" visibility="public" namespace="Logical_View" xmi.id="gen_archer" parent="Character" discriminator="" name=""/>
+
+      <UML:Abstraction isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="real_sword" client="Sword" name="" supplier="Equipable"/>
+      <UML:Abstraction isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="real_wand" client="Wand" name="" supplier="Equipable"/>
+      <UML:Abstraction isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="real_bow" client="Bow" name="" supplier="Equipable"/>
+
+      <UML:Dependency stereotype="st_use" isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="dep_main_gm" client="Main" name="" supplier="GameManager"/>
+      <UML:Dependency stereotype="st_use" isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="dep_sword_warrior" client="Sword" name="" supplier="Warrior"/>
+      <UML:Dependency stereotype="st_use" isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="dep_wand_mage" client="Wand" name="" supplier="Mage"/>
+      <UML:Dependency stereotype="st_use" isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="dep_bow_archer" client="Bow" name="" supplier="Archer"/>
+
+      <UML:Association isSpecification="false" visibility="public" namespace="Logical_View" xmi.id="agg_gm_chars" name="gère">
+       <UML:Association.connection>
+        <UML:AssociationEnd isSpecification="false" visibility="public" changeability="changeable" isNavigable="false" xmi.id="agg_gm_chars_a" type="GameManager" aggregation="aggregate" name="" multiplicity="1"/>
+        <UML:AssociationEnd isSpecification="false" visibility="public" changeability="changeable" isNavigable="true" xmi.id="agg_gm_chars_b" type="Character" aggregation="none" name="" multiplicity="0..*"/>
+       </UML:Association.connection>
+      </UML:Association>
+     </UML:Namespace.ownedElement>
+
+     <XMI.extension xmi.extender="umbrello">
+      <diagrams resolution="96">
+       <diagram xmi.id="diag_classes" name="diagramme-classes" type="1" documentation="Diagramme de classes du jeu Fantasy" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" griddotcolor="#d3d3d3" linecolor="#000000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="10" snapy="10" zoom="75" canvasheight="940" canvaswidth="1030" isopen="1">
+        <widgets>
+         <classwidget xmi.id="Main" localid="w_main" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="20" y="60" width="220" height="50" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="GameManager" localid="w_gm" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="330" y="20" width="400" height="150" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Character" localid="w_char" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="383" y="260" width="300" height="210" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Warrior" localid="w_warrior" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="63" y="530" width="280" height="115" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Mage" localid="w_mage" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="393" y="530" width="280" height="115" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Archer" localid="w_archer" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="723" y="530" width="280" height="115" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Sword" localid="w_sword" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="63" y="700" width="280" height="50" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Wand" localid="w_wand" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="393" y="700" width="280" height="50" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <classwidget xmi.id="Bow" localid="w_bow" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="723" y="700" width="280" height="50" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+         <interfacewidget xmi.id="Equipable" localid="w_equip" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" x="393" y="810" width="280" height="60" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showpackage="1" showscope="1" showattributes="1" showattsigs="601" showopsigs="601"/>
+        </widgets>
+        <messages/>
+        <associations>
+         <assocwidget xmi.id="gen_warrior" localid="a_gen_w" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="500" widgetaid="Warrior" widgetbid="Character" widgetalocalid="w_warrior" widgetblocalid="w_char" indexa="1" totalcounta="2" indexb="1" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="203" starty="530"/><endpoint endx="433" endy="470"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="gen_mage" localid="a_gen_m" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="500" widgetaid="Mage" widgetbid="Character" widgetalocalid="w_mage" widgetblocalid="w_char" indexa="1" totalcounta="2" indexb="2" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="533" starty="530"/><endpoint endx="533" endy="470"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="gen_archer" localid="a_gen_a" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="500" widgetaid="Archer" widgetbid="Character" widgetalocalid="w_archer" widgetblocalid="w_char" indexa="1" totalcounta="2" indexb="3" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="863" starty="530"/><endpoint endx="633" endy="470"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="real_sword" localid="a_real_s" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="511" widgetaid="Sword" widgetbid="Equipable" widgetalocalid="w_sword" widgetblocalid="w_equip" indexa="1" totalcounta="2" indexb="1" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="203" starty="750"/><endpoint endx="453" endy="810"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="real_wand" localid="a_real_wa" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="511" widgetaid="Wand" widgetbid="Equipable" widgetalocalid="w_wand" widgetblocalid="w_equip" indexa="1" totalcounta="2" indexb="2" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="533" starty="750"/><endpoint endx="533" endy="810"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="real_bow" localid="a_real_b" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="511" widgetaid="Bow" widgetbid="Equipable" widgetalocalid="w_bow" widgetblocalid="w_equip" indexa="1" totalcounta="2" indexb="3" totalcountb="4" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="863" starty="750"/><endpoint endx="613" endy="810"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="dep_main_gm" localid="a_dep_main" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="502" widgetaid="Main" widgetbid="GameManager" widgetalocalid="w_main" widgetblocalid="w_gm" indexa="1" totalcounta="2" indexb="1" totalcountb="2" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="240" starty="85"/><endpoint endx="330" endy="85"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="dep_sword_warrior" localid="a_dep_s" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="502" widgetaid="Sword" widgetbid="Warrior" widgetalocalid="w_sword" widgetblocalid="w_warrior" indexa="1" totalcounta="2" indexb="1" totalcountb="2" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="203" starty="700"/><endpoint endx="203" endy="645"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="dep_wand_mage" localid="a_dep_wa" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="502" widgetaid="Wand" widgetbid="Mage" widgetalocalid="w_wand" widgetblocalid="w_mage" indexa="1" totalcounta="2" indexb="1" totalcountb="2" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="533" starty="700"/><endpoint endx="533" endy="645"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="dep_bow_archer" localid="a_dep_b" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="502" widgetaid="Bow" widgetbid="Archer" widgetalocalid="w_bow" widgetblocalid="w_archer" indexa="1" totalcounta="2" indexb="1" totalcountb="2" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="863" starty="700"/><endpoint endx="863" endy="645"/></linepath>
+         </assocwidget>
+         <assocwidget xmi.id="agg_gm_chars" localid="a_agg" textcolor="#000000" linecolor="#000000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1" autoresize="1" seqnum="" type="501" widgetaid="GameManager" widgetbid="Character" widgetalocalid="w_gm" widgetblocalid="w_char" indexa="1" totalcounta="2" indexb="1" totalcountb="2" visibilityA="public" visibilityB="public" changeabilityA="changeable" changeabilityB="changeable">
+          <linepath layout="Direct"><startpoint startx="533" starty="170"/><endpoint endx="533" endy="260"/></linepath>
+         </assocwidget>
+        </associations>
+       </diagram>
+      </diagrams>
+     </XMI.extension>
+    </UML:Model>
+    <UML:Model stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="Use_Case_View" isRoot="false" name="Use Case View">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="Component_View" isRoot="false" name="Component View">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="Deployment_View" isRoot="false" name="Deployment View">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="st_folder" isSpecification="false" isAbstract="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="Entity_Relationship_Model" isRoot="false" name="Entity Relationship Model">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+   </UML:Namespace.ownedElement>
+  </UML:Model>
+ </XMI.content>
+ <XMI.extensions xmi.extender="umbrello">
+  <docsettings viewid="diag_classes" documentation="Diagramme de classes du jeu Fantasy" uniqueid="u1"/>
+ </XMI.extensions>
+</XMI>

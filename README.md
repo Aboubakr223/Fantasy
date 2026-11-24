@@ -31,7 +31,8 @@ fantasy-java/
 │   ├── style.css              Mise en forme de la page
 │   └── app.js                 Classes POO en JavaScript + logique de la page
 └── uml/
-    └── fantasy.xmi            Diagramme de classes UML (format XMI)
+    ├── fantasy.xmi            Diagramme de classes UML (projet Umbrello)
+    └── diagramme-classes.png  Capture du diagramme de classes
 ```
 
 ---
@@ -39,6 +40,7 @@ fantasy-java/
 ## Sommaire
 
 - [Résumé de lobjectif]
+- [Diagramme de classes UML]
 - [Rôle de chaque fichier]
 - [Installation et lancement]
 - [Exemple d'exécution]
@@ -105,8 +107,32 @@ Un **singleton** qui coordonne le jeu :
 
 > **Note :** l'énoncé d'origine est rédigé pour JavaScript. Le modèle objet est ici implémenté en **Java**, et reproduit à l'identique en **JavaScript** pour l'interface web.
 
+---
 
+## Diagramme de classes UML
 
+Diagramme réalisé avec **Umbrello** (fichier source : [`uml/fantasy.xmi`](uml/fantasy.xmi)).
+
+![Diagramme de classes UML du projet Fantasy](uml/diagramme-classes.png)
+
+### Lecture du diagramme
+
+| Relation | Notation | Signification |
+|---|---|---|
+| `Warrior`, `Mage`, `Archer` → `Character` | Flèche pleine, triangle vide | **Héritage** : chaque héros est un `Character` et redéfinit `getBonusDamage()`. |
+| `Sword`, `Wand`, `Bow` → `Equipable` | Flèche pointillée, triangle vide | **Réalisation** : chaque équipement implémente l'interface `Equipable`. |
+| `GameManager` ◇— `Character` | Losange vide, multiplicités `1` / `0..*` | **Agrégation** : le gestionnaire conserve de 0 à plusieurs héros. |
+| `Main` → `GameManager` | Flèche pointillée | **Dépendance** : `Main` utilise le singleton pour lancer la simulation. |
+| `Sword` → `Warrior`, `Wand` → `Mage`, `Bow` → `Archer` | Flèche pointillée | **Dépendance** : chaque équipement modifie la statistique d'un type de héros précis. |
+
+### Conventions
+
+- **Visibilité :** `+` public, `-` privé, `#` protégé.
+- **En italique :** élément abstrait (`Character`, `getBonusDamage()`, `Equipable`).
+- **Souligné :** membre statique (`INSTANCE`, `getInstance()`, `main()`).
+- **«singleton»** : `GameManager` n'a qu'une instance, obtenue par `getInstance()` (constructeur privé).
+
+---
 
 ## Rôle de chaque fichier
 
@@ -137,7 +163,8 @@ Un **singleton** qui coordonne le jeu :
 
 | Fichier | Rôle |
 |---|---|
-| `fantasy.xmi` | Diagramme de classes UML au format XMI, importable dans un outil de modélisation (Modelio, StarUML, Eclipse Papyrus…). |
+| `fantasy.xmi` | Projet **Umbrello** contenant le diagramme de classes complet : attributs typés, méthodes avec paramètres et types de retour, visibilités, héritages, réalisations, agrégation et dépendances. S'ouvre avec Umbrello (*Fichier → Ouvrir*). |
+| `diagramme-classes.png` | Capture du diagramme dans Umbrello, affichée dans ce README. |
 
 
 
