@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="model_fantasy" name="FantasyGame">
+    <packagedElement xmi:type="uml:Interface" xmi:id="Equipable" name="Equipable">
+      <ownedOperation xmi:id="equip_operation" name="equip"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Character" name="Character" isAbstract="true">
+      <ownedAttribute xmi:id="character_name" name="name"/>
+      <ownedAttribute xmi:id="character_health" name="health"/>
+      <ownedAttribute xmi:id="character_level" name="level"/>
+      <ownedOperation xmi:id="character_attack" name="attack"/>
+      <ownedOperation xmi:id="character_takeDamage" name="takeDamage"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Warrior" name="Warrior">
+      <generalization xmi:id="warrior_extends" general="Character"/>
+      <ownedAttribute xmi:id="warrior_strength" name="strength"/>
+      <ownedOperation xmi:id="warrior_charge" name="charge"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Mage" name="Mage">
+      <generalization xmi:id="mage_extends" general="Character"/>
+      <ownedAttribute xmi:id="mage_mana" name="mana"/>
+      <ownedOperation xmi:id="mage_castSpell" name="castSpell"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Archer" name="Archer">
+      <generalization xmi:id="archer_extends" general="Character"/>
+      <ownedAttribute xmi:id="archer_range" name="range"/>
+      <ownedOperation xmi:id="archer_shootArrow" name="shootArrow"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Sword" name="Sword">
+      <interfaceRealization xmi:id="sword_realizes_equipable" name="equipable" supplier="Equipable" client="Sword"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Wand" name="Wand">
+      <interfaceRealization xmi:id="wand_realizes_equipable" name="equipable" supplier="Equipable" client="Wand"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Bow" name="Bow">
+      <interfaceRealization xmi:id="bow_realizes_equipable" name="equipable" supplier="Equipable" client="Bow"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GameManager" name="GameManager">
+      <ownedAttribute xmi:id="manager_characters" name="characters"/>
+      <ownedOperation xmi:id="manager_create" name="createCharacter"/>
+      <ownedOperation xmi:id="manager_battle" name="startBattle"/>
+      <ownedOperation xmi:id="manager_instance" name="getInstance" isStatic="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Main" name="Main">
+      <ownedOperation xmi:id="main_method" name="main" isStatic="true"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

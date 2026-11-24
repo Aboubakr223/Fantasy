@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestion des héros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="eyebrow">Mini jeu fantasy</p>
+      <h1>Gestion des héros</h1>
+      <p>Crée deux héros, équipe-les, puis lance le combat.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Créer un héros</h2>
+      <form id="create-form">
+        <label>Nom <input id="hero-name" required maxlength="20" placeholder="Ex. Ragnar"></label>
+        <label>Classe
+          <select id="hero-type">
+            <option value="warrior">Guerrier</option>
+            <option value="mage">Mage</option>
+            <option value="archer">Archer</option>
+          </select>
+        </label>
+        <button type="submit">Créer</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Mes héros</h2>
+      <p class="hint">Chaque héros reçoit l’équipement de sa classe : épée, baguette ou arc.</p>
+      <div id="heroes" class="heroes"><p class="empty">Aucun héros pour le moment.</p></div>
+    </section>
+
+    <section class="panel battle-panel">
+      <h2>Combat</h2>
+      <p>Le premier héros attaque, puis le second riposte jusqu’à ce qu’il y ait un vainqueur.</p>
+      <div class="battle-form">
+        <label>Héros 1 <select id="fighter-1"></select></label>
+        <label>Héros 2 <select id="fighter-2"></select></label>
+        <button id="battle-button" type="button">Lancer le combat</button>
+      </div>
+      <pre id="log" aria-live="polite">Les actions du jeu apparaîtront ici.</pre>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

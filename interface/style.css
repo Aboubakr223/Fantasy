@@ -1,0 +1,31 @@
+:root { font-family: Arial, sans-serif; color: #202437; background: #f4f5fb; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.page { width: min(760px, calc(100% - 32px)); margin: 42px auto; }
+header { margin-bottom: 24px; }
+.eyebrow { color: #6652c8; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: .08em; }
+h1 { margin: 6px 0; font-size: 34px; }
+h2 { margin: 0 0 16px; font-size: 19px; }
+.panel { background: white; border: 1px solid #e1e3ef; border-radius: 14px; padding: 20px; margin: 16px 0; box-shadow: 0 5px 18px #2024370a; }
+form, .section-title { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+label { display: grid; gap: 6px; font-size: 14px; flex: 1; min-width: 150px; }
+input, select { width: 100%; padding: 10px; border: 1px solid #cfd2e2; border-radius: 8px; background: white; font: inherit; }
+button { border: 0; border-radius: 8px; padding: 11px 16px; color: white; background: #6652c8; font-weight: bold; cursor: pointer; }
+button:hover { background: #5140ac; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.section-title { justify-content: space-between; align-items: center; }
+.section-title h2 { margin: 0; }
+.secondary { color: #5140ac; background: #efedff; }
+.secondary:hover { background: #e3e0ff; }
+.heroes { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 16px; }
+.hero { border: 1px solid #e1e3ef; border-radius: 10px; padding: 14px; }
+.hero h3 { margin: 0 0 8px; }
+.hero p { margin: 5px 0; font-size: 14px; color: #555b70; }
+.empty { color: #73788b; }
+.battle-panel p { color: #555b70; }
+pre { min-height: 72px; white-space: pre-wrap; padding: 14px; border-radius: 8px; background: #f4f5fb; color: #303449; font: 14px/1.5 Arial, sans-serif; }
+@media (max-width: 520px) { .page { margin: 24px auto; } h1 { font-size: 28px; } }
+.hint { margin: 0; color: #555b70; font-size: 14px; }
+.hero button { margin-top: 8px; width: 100%; }
+.hero.ko { opacity: .55; }
+.battle-form { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
